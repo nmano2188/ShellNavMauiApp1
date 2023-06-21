@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="MauiApp1.Controls.ShellHeader"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Border
+        BackgroundColor="White"
+        HorizontalOptions="FillAndExpand"
+        Stroke="Transparent"
+        StrokeShape="RoundRectangle 0,20,0,0">
+        <Grid
+            Margin="{OnPlatform iOS='0,10,0,0',
+                                Android='0,10'}"
+            Padding="{OnPlatform iOS='0,10',
+                                 Android='20'}"
+            HorizontalOptions="FillAndExpand">
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+                Source="note.png"
+                VerticalOptions="Start" />
+        </Grid>
+    </Border>
+</ContentView>

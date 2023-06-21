@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:MauiApp1.Controls"
+    xmlns:local="clr-namespace:MauiApp1.Pages"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.ForegroundColor="White"
+    Shell.NavBarHasShadow="False"
+    Shell.TabBarIsVisible="False">
+    <Shell.FlyoutHeader>
+        <control:ShellHeader />
+    </Shell.FlyoutHeader>
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Border
+                Margin="10,5"
+                Padding="10"
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="1">
+                <Grid ColumnDefinitions="50,*">
+                    <Image
+                        x:Name="imgMenu"
+                        HeightRequest="25"
+                        Source="note.png"
+                        WidthRequest="25" />
+                    <Label
+                        x:Name="lblMenu"
+                        Grid.Column="1"
+                        Style="{StaticResource h5}"
+                        Text="{Binding Title}"
+                        VerticalOptions="Center" />
+                </Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource DarkBackground}}" />
+
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Primary}}" />
+                                    <Setter TargetName="lblMenu" Property="Label.TextColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </Border>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:Page5}"
+        FlyoutItemIsVisible="False"
+        Route="MainPage" />
+    <FlyoutItem
+        Title="Page1"
+        FlyoutDisplayOptions="AsMultipleItems"
+        Route="Page1">
+        <ShellContent
+            Title="Dashboard"
+            ContentTemplate="{DataTemplate local:Page1}"
+            Icon="note.png"
+            Route="Page1" />
+
+        <ShellContent
+            Title="Page2"
+            ContentTemplate="{DataTemplate local:Page2}"
+            Icon="note.png"
+            Route="Page2" />
+
+        <ShellContent
+            Title="Clarifications"
+            ContentTemplate="{DataTemplate local:Page3}"
+            Icon="note.png" />
+
+        <ShellContent
+            Title="Page4"
+            ContentTemplate="{DataTemplate local:Page4}"
+            Icon="note.png"
+            Route="Page4" />
+
+        <ShellContent
+            Title="Page5"
+            ContentTemplate="{DataTemplate local:Page5}"
+            Icon="note.png"
+            Route="Page5" />
+        <ShellContent
+            Title="Page6"
+            ContentTemplate="{DataTemplate local:Page6}"
+            Icon="note.png"
+            Route="Page6" />
+        <ShellContent
+            Title="Page7"
+            ContentTemplate="{DataTemplate local:Page7}"
+            Icon="note.png"
+            Route="Page7" />
+    </FlyoutItem>
+
+</Shell>
